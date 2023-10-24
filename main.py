@@ -8,7 +8,7 @@ questions = df['Вопрос']
 answers = df['Ответ']
 
 embeddings = np.load('embeddings.npy')
-model = SentenceTransformer('all-MiniLM-L6-v2')
+model = SentenceTransformer('distiluse-base-multilingual-cased-v1')
 
 user_input = st.text_input('Введите вопрос:')
 emb = model.encode(user_input)
