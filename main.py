@@ -3,7 +3,7 @@ import numpy as np
 from sentence_transformers import SentenceTransformer
 import streamlit as st
 
-df = pd.read_csv('qa.csv')
+df = pd.read_csv('wow.csv')
 questions = df['Вопрос']
 answers = df['Ответ']
 
