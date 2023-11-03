@@ -7,7 +7,7 @@ df = pd.read_csv('qa.csv')
 questions = df['Вопрос']
 answers = df['Ответ']
 
-embeddings = np.load('embeddings.npy')
+embeddings = np.load('embeddings_myschool.npy')
 model = SentenceTransformer('distiluse-base-multilingual-cased-v1')
 
 user_input = st.text_input('Введите вопрос:')
@@ -20,5 +20,5 @@ if user_input != '':
     for idx, i in zip(top_k_idx, range(1, top_k+1)):
         st.write(f'{i}. Вопрос: {questions[idx]}')
         selected_answers.append(answers[idx])
-    idx = st.selectbox('Выберите номер вопроса', range(1, top_k+1)) - 1
+    idx = st.selectbox('Выберите номер вопроса: ', range(1, top_k+1)) - 1
     st.write(f'Ответ: {selected_answers[idx]}')
